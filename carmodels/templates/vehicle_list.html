@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Vehicle List{% endblock %}
+
+{% block content %}
+<div class="header-wrapper">
+    <h1>Vehicle List</h1>
+
+    <form method="GET" action="{% url 'vehicle_list' %}" class="search-form">
+        <input type="text" name="q" placeholder="Search vehicles..." value="{{ request.GET.q }}" class="search-input">
+        <button type="submit" class="search-btn">Search</button>
+    </form>
+</div>
+
+<div class="vehicle-cards">
+    {% for vehicle in vehicles %}
+        <div class="vehicle-card">
+            <h2>{{ vehicle.brand }} {{ vehicle.model }}</h2>
+            <p><strong>Year:</strong> {{ vehicle.year }}</p>
+            <p><strong>Price:</strong> ${{ vehicle.price }}</p>
+            <p><strong>Comments:</strong> {{ vehicle.comments|default:"No comments available." }}</p>
+            <a class="btn" href="{% url 'vehicle_detail' vehicle.pk %}">View Details</a>
+        </div>
+    {% empty %}
+        <p>No vehicles found matching your search.</p>
+    {% endfor %}
+</div>
+
+{% endblock %}
