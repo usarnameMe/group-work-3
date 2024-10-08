@@ -1,0 +1,33 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Virtual environments
+venv/
+.env/
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+
+# Static and media files
+staticfiles/
+media/
+
+# Docker files
+*.pid
+
+# IDE files
+.vscode/
+.idea/
+
+# Node.js dependency folder
+node_modules/
+
+# MacOS-specific files
+.DS_Store
